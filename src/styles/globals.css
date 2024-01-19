@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+@layer utilities {
+  .color-scheme-dark {
+    color-scheme: dark;
+  }
+
+  .mask-radial-faded {
+    mask-image: radial-gradient(circle at center center,
+        black,
+        transparent 75%);
+  }
+
+  .mask-inline-faded {
+    mask-image: linear-gradient(to right,
+        transparent,
+        black 25%,
+        black 75%,
+        transparent);
+  }
+
+  .bg-shiny-frame {
+    background:
+      linear-gradient(rgb(6, 9, 24), rgb(6, 9, 24)) padding-box padding-box,
+      linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9)) border-box border-box;
+  }
+
+  .play-state-paused {
+    animation-play-state: paused;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #e7eaea;
+  outline: 1px solid slategrey;
+  border-radius: 20px;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.parallax {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+@media (max-width: 738px) {
+  .parallax h1 {
+    font-size: 72px;
+    text-align: center;
+  }
+}
+
+.parallax .mountains {
+  background-image: url("/mountains.png");
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+}
+
+@media (max-width: 738px) {
+  .parallax .mountains {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.parallax .planets {
+  background-image: url("/plantes.jpg");
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .parallax .planets {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.parallax .stars {
+  background-image: url("/stars.png");
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
