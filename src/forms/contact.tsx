@@ -66,7 +66,7 @@ function ContactForm() {
           <Input
             id="contact-form-name"
             type="text"
-            className={errors.name ? "border-error" : ""}
+            className={errors.name ? "border-error text-white" : "text-white"}
             {...register("name", { required: true })}
           />
           {errors.name && (
@@ -81,7 +81,7 @@ function ContactForm() {
           <Input
             id="contact-form-email"
             type="email"
-            className={errors.email ? "border-error" : ""}
+            className={errors.email ? "border-error text-white" : "text-white"}
             {...register("email", { required: true })}
           />
           {errors.email && (
@@ -95,7 +95,7 @@ function ContactForm() {
           <Label htmlFor="contact-form-message">Message</Label>
           <Textarea
             id="contact-form-message"
-            className={errors.message ? "border-error" : ""}
+            className={errors.message ? "border-error text-white" : "text-white"}
             {...register("message", { required: true })}
           />
           {errors.message && (
